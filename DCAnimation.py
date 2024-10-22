@@ -16,6 +16,7 @@ class DCAnimation:
         
         self.length = P.length
         self.width = P.width
+        self.radius = P.radius
         
         self.x = (fig_width / 2.0) - (self.width / 2.0)
         self.y = (fig_height / 2.0) - (self.length / 2.0)
@@ -40,7 +41,6 @@ class DCAnimation:
     
     def drawWheel(self, theta):
         # define the radius of the wheel
-        radius = 0.1
         pointRadius = 0.01
         
         # Circle is unmoving, only defined point moves

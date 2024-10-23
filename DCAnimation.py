@@ -57,6 +57,9 @@ class DCAnimation:
         xPoint = self.x + (self.radius * np.cos(theta))
         yPoint = self.y + (self.radius * np.sin(theta))
         # add a point at the marked coordinates
-        point = mpatches.Circle([xPoint, yPoint], pointRadius, fc='red', ec='red')
-        self.handle.append(point)
-        self.ax.add_patch(point)
+        if (self.flagInit):
+            point = mpatches.Circle([xPoint, yPoint], pointRadius, fc='red', ec='red')
+            self.handle.append(point)
+            self.ax.add_patch(point)
+        else:
+            self.handle[1].center = [xPoint, yPoint]

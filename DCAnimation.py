@@ -12,14 +12,15 @@ class DCAnimation:
                                                     # patches and line objects.
         
         # Get figure size in inches and convert to pixels
-        fig_width, fig_height = self.fig.get_size_inches() * self.fig.dpi  # Window width and height in pixels
+        self.figWidth = P.figWidth
+        self.figHeight = P.figHeight
         
         self.length = P.length
         self.width = P.width
         self.radius = P.radius
         
-        self.x = (fig_width / 2.0) - (self.width / 2.0)
-        self.y = (fig_height / 2.0) - (self.length / 2.0)
+        self.x = (self.figWidth / 2.0) 
+        self.y = (self.figWidth / 2.0) 
         
     def update(self, u):
         # Process inputs to function
@@ -48,13 +49,13 @@ class DCAnimation:
             # create a wheel
                 # [x, y] = center of the circle
                 # fc = face color, ec = edge color
-            wheel = mpatches.Circle([self.x, self.y], radius, fc='blue', ec='black')
+            wheel = mpatches.Circle([self.x, self.y], self.radius, fc='blue', ec='black')
             self.handle.append(wheel)
             self.ax.add_patch(wheel)
         
         # update the point position
-        xPoint = self.x + (radius * np.cos(theta))
-        yPoint = self.y + (radius * np.sin(theta))
+        xPoint = self.x + (self.radius * np.cos(theta))
+        yPoint = self.y + (self.radius * np.sin(theta))
         # add a point at the marked coordinates
         point = mpatches.Circle([xPoint, yPoint], pointRadius, fc='red', ec='red')
         self.handle.append(point)

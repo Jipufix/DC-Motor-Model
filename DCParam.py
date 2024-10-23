@@ -2,13 +2,16 @@
 import numpy as np 
 
 # Physical parameters of the arm known to the controller
-radius = 7.3 / 2.0          # radius of the wheel, cm
+radius = 7.3 / (2.0 * 10)          # radius of the wheel, cm
 m = 13                      # mass of the wheel, g
-d = (2.5 / 10)              # thickness of the wheel, cm
+d = (2.5 / 100)              # thickness of the wheel, mm -> m
 
 # Parameters for animation
-length = 20.0               # length of the base, cm
-width = 10.0                # width of the base, cm
+length = (2.0 / 10)         # length of the base, cm -> m
+width = (1.0 / 10)          # width of the base, cm -> m
+
+figWidth = 1.0              # width of plot, m
+figHeight = 1.0             # width of plot, m
 
 # Initial conditions
 theta0 = 0.0                # initial wheel angle, rad

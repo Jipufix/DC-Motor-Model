@@ -19,7 +19,7 @@ class dataPlotter:
         self.force_history = []  # control force
         # create a handle for every subplot.
         self.handle = []
-        self.handle.append(myPlot(self.ax[0], ylabel='z(m)', title='Mass Data'))
+        self.handle.append(myPlot(self.ax[0], ylabel='theta(θ)', title='Mass Data'))
         self.handle.append(myPlot(self.ax[1], xlabel='t(s)', ylabel='force(N)'))
 
     def update(self, t, reference, states, ctrl):

@@ -4,10 +4,10 @@ import DCParam as P
 from signalGenerator import signalGenerator
 from DCAnimation import DCAnimation
 from dataPlotter import dataPlotter
-
+from DCDynamics import DCDynamics
 # Instantiate the reference input classes
 reference = signalGenerator(amplitude=0.5, frequency=0.1)
-thetaRef = signalGenerator(amplitude=0.25*np.pi, frequency=0.1)
+thetaRef = signalGenerator(amplitude=np.pi, frequency=0.1)
 fRef = signalGenerator(amplitude=0.25, frequency=0.1)
 
 # Instantiate teh simulation plots and animation 

@@ -6,6 +6,10 @@ radius = 7.3 / (2.0 * 10)          # radius of the wheel, cm
 m = 13                      # mass of the wheel, g
 d = (2.5 / 100)              # thickness of the wheel, mm -> m
 
+# Parameters for the motor
+voltage = 12                # rated voltage of the motor can go up to 12V DC
+mMotor = 26                 # mass of motor, g
+
 # Parameters for animation
 length = (2.0 / 10)         # length of the base, cm -> m
 width = (1.0 / 10)          # width of the base, cm -> m

@@ -21,6 +21,10 @@ figHeight = 1.0             # width of plot, m
 theta0 = 0.0                # initial wheel angle, rad
 thetadot0 = 0.0             # initial wheel angular velocity, rad/s
 
+# Calculations
+R = 3.75                    # Ohms
+kt = voltage / 691          # torque constant
+
 # Simulation parameters
 t_start = 0.0               # Start time of simulation
 t_end = 50.0                # End time of simulation

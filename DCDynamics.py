@@ -15,8 +15,11 @@ class DCDynamics:
 
         self.d = P.d # thickness of wheel
         
+        self.kt = P.kt
+        
+        self.R = P.R
+        
         self.Ts = P.Ts  
-        self.torque_limit = P.tau_max
 
     def update(self, u):
         # This is the external method that takes the input u at time
@@ -32,7 +35,7 @@ class DCDynamics:
         # re-label states for readability
         theta = state[0][0]
         thetadot = state[1][0]
-        thetaddot = 
+        thetaddot = (2 * P.kt) * (voltage - P.kt*thetadot) / (self.R * self.m * (self.radius**2))
         xdot = np.array([[thetadot], [thetaddot]])
         return xdot
 

@@ -7,7 +7,8 @@ class DCDynamics:
         # Initial state conditions
         self.state = np.array([
             [P.theta0],      # initial angle
-            [P.thetadot0]    # initial angular rate
+            [P.thetadot0],    # initial angular rate
+            [P.thetaddot0]
         ])  
         self.m = P.m # mass of wheel
 

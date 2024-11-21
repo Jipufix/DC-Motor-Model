@@ -21,6 +21,7 @@ figHeight = 1.0             # width of plot, m
 # Initial conditions
 theta0 = 0.0                # initial wheel angle, rad
 thetadot0 = 0.0             # initial wheel angular velocity, rad/s
+thetaddot0 = 0.0            # initial wheel angular acceleration, rad/s^2
 
 # Calculations
 R = 3.75                                            # Ohms

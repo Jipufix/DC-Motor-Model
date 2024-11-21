@@ -7,7 +7,7 @@ m = 13                          # mass of the wheel, g
 d = (2.5 / 100)                 # thickness of the wheel, mm -> m
 
 # Parameters for the motor
-VMax = 3                    # rated voltage of the motor can go up to 12V DC, but max operation should be 3 V
+VMax = 12                    # rated voltage of the motor can go up to 12V DC, but max operation should be 3 V
 thetadotMax = 6600          # maximum no load angular velocity, rpm
 mMotor = 26                 # mass of motor, g
 
@@ -24,11 +24,11 @@ thetadot0 = 0.0             # initial wheel angular velocity, rad/s
 thetaddot0 = 0.0            # initial wheel angular acceleration, rad/s^2
 
 # Calculations
-R = 3.75                                            # Ohms
+R = VMax / 0.8                                            # Ohms
 kt = VMax / ((thetadotMax * 2 * np.pi) / 60)        # torque constant
 
 # Simulation parameters
 t_start = 0.0               # Start time of simulation
-t_end = 50.0                # End time of simulation
+t_end = 100.0                # End time of simulation
 Ts = 0.01                   # sample time for simulation
 t_plot = 0.1                # the plotting and animation is updated at this rate

@@ -10,7 +10,15 @@ from ctrlPD import ctrlPD
 # Instantiate the reference input classes
 DC = DCDynamics()
 controller = ctrlPD()
-reference = signalGenerator(amplitude=500, frequency=0.05)
+
+# TASK 2 #
+# reference = signalGenerator(amplitude=500, frequency=0.01)
+
+# TASK 3.a #
+reference = signalGenerator(amplitude=100, frequency=0.01, y_offset=50)
+
+# TASK 3.b #
+#reference = signalGenerator(amplitude=100, frequency=0.01)
 
 
 # Instantiate teh simulation plots and animation 
@@ -28,7 +36,6 @@ while t < P.t_end:  # main simulation loop
         x = DC.state
         
         u = controller.update(r, x)
-        print(x)
         y = DC.update(u)
         t = t + P.Ts
 

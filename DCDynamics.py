@@ -39,7 +39,7 @@ class DCDynamics:
         
         thetaddot = (2 * P.kt) * (V_app - P.kt*thetadot) / (self.R * self.m * (self.radius**2))
         
-        xdot = np.array([[thetadot], [thetaddot], [0.0]])       # Final value is angular jerk, which should be 0.0 as we are not touching it
+        xdot = np.array([[thetadot], [thetaddot], [0.0]])       # Third value is angular jerk, which should be 0.0 as we are not touching it
         return xdot
 
     def h(self):

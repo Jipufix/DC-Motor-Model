@@ -30,12 +30,12 @@ class DCDynamics:
         y = self.h()  # return the corresponding output
         return y
 
-    def f(self, state, voltage):
+    def f(self, state, V_app):
         # Return xdot = f(x,u), the system state update equations
         # re-label states for readability
         theta = state[0][0]
         thetadot = state[1][0]
-        thetaddot = (2 * P.kt) * (voltage - P.kt*thetadot) / (self.R * self.m * (self.radius**2))
+        thetaddot = (2 * P.kt) * (saturate(V_app, P.vMax) - P.kt*thetadot) / (self.R * self.m * (self.radius**2))
         xdot = np.array([[thetadot], [thetaddot]])
         return xdot
 
@@ -54,9 +54,8 @@ class DCDynamics:
         F4 = self.f(self.state + self.Ts * F3, u)
         self.state = self.state + self.Ts / 6 * (F1 + 2 * F2 + 2 * F3 + F4)
 
-'''
+
 def saturate(u, limit):
     if abs(u) > limit:
         u = limit * np.sign(u)
     return u
-'''

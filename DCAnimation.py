@@ -17,7 +17,7 @@ class DCAnimation:
         
         self.length = P.length
         self.width = P.width
-        self.radius = P.radius
+        self.radius = (0.8 * self.figWidth) / 2.0
         
         self.x = (self.figWidth / 2.0) 
         self.y = (self.figWidth / 2.0) 
@@ -49,13 +49,21 @@ class DCAnimation:
             # create a wheel
                 # [x, y] = center of the circle
                 # fc = face color, ec = edge color
-            wheel = mpatches.Circle([self.x, self.y], self.radius, fc='blue', ec='black')
+            wheel = mpatches.Circle([self.x, self.y], self.radius, fc='gray', ec='black')
             self.handle.append(wheel)
             self.ax.add_patch(wheel)
         
         # update the point position
         xPoint = self.x + (self.radius * np.cos(theta))
         yPoint = self.y + (self.radius * np.sin(theta))
+        # add a line to the point
+        if (self.flagInit):
+            line = mpatches.Polygon([[self.x, self.y], [xPoint, yPoint]], closed=False, edgecolor='red', linewidth=4)
+            self.handle.append(line)
+            self.ax.add_patch(line)
+        else:
+            self.handle[1].set_xy([[self.x, self.y], [xPoint, yPoint]])
+        """   
         # add a point at the marked coordinates
         if (self.flagInit):
             point = mpatches.Circle([xPoint, yPoint], pointRadius, fc='red', ec='red')
@@ -63,3 +71,4 @@ class DCAnimation:
             self.ax.add_patch(point)
         else:
             self.handle[1].center = [xPoint, yPoint]
+        """

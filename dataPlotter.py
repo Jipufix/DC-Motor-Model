@@ -19,8 +19,8 @@ class dataPlotter:
         self.force_history = []  # control force
         # create a handle for every subplot.
         self.handle = []
-        self.handle.append(myPlot(self.ax[0], ylabel='theta(θ)', title='Mass Data'))
-        self.handle.append(myPlot(self.ax[1], xlabel='t(s)', ylabel='force(N)'))
+        self.handle.append(myPlot(self.ax[0], ylabel='thetadot(θ)', title='Angular Velocity'))
+        self.handle.append(myPlot(self.ax[1], xlabel='t(s)', ylabel='voltage(V)'))
 
     def update(self, t, reference, states, ctrl):
         '''
@@ -28,8 +28,8 @@ class dataPlotter:
         '''
         # update the time history of all plot variables
         self.time_history.append(t)  # time
-        self.z_ref_history.append(reference)  # reference mass position
-        self.z_history.append(states[0,0])  # mass position
+        self.z_ref_history.append(reference)  # reference angular position
+        self.z_history.append(states[1,0])  # angular position
         self.force_history.append(ctrl)  # force on the base
         # update the plots with associated histories
         self.handle[0].update(self.time_history, [self.z_history, self.z_ref_history])

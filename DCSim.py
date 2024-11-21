@@ -24,7 +24,7 @@ while t < P.t_end:  # main simulation loop
     
     while t < t_next_plot:
         # set variables
-        r = reference.square(t)      # convert to rad/s
+        r = reference.square(t) * (2 * np.pi) / 60      # convert to rad/s
         x = DC.state
         
         u = controller.update(r, x)

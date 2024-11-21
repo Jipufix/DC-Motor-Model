@@ -7,15 +7,14 @@ class ctrlPD:
         #       PD Control: Time Design Strategy
         ####################################################
         # tuning parameters
-        tr = 0.8          # Rise time for inner loop (theta)
+        tr = 0.08          # Rise time for inner loop (theta)
         zeta = 0.707        # closed loop Damping Coefficient
         w_n = 2.2 / tr
         
-        self.kd = 2 * zeta * w_n * (P.R * P.m * (P.radius ** 2)) / (4 * P.kt)
+        self.kd = 2 * zeta * w_n * (P.R * P.m * (P.radius ** 2)) / (2 * P.kt + 2 *(P.kt ** 2))
         self.kp = w_n**2 * (P.R * P.m * (P.radius ** 2)) / (2 * P.kt)
 
     def update(self, thetadot_r, state):
-        theta = state[0][0]
         thetadot = state[1][0]
         thetaddot = state[2][0]
         V_tilde = (self.kp * (thetadot_r - thetadot)) - (self.kd * thetaddot)

@@ -6,9 +6,9 @@ class DCDynamics:
     def __init__(self, alpha=0.0):
         # Initial state conditions
         self.state = np.array([
-            [P.theta0],      # initial angle
-            [P.thetadot0],    # initial angular rate
-            [P.thetaddot0]
+            [P.theta0],         # initial angle
+            [P.thetadot0],      # initial angular rate
+            [P.thetaddot0]      # initial angular acceleration
         ])  
         self.m = P.m # mass of wheel
 
@@ -36,8 +36,12 @@ class DCDynamics:
         # re-label states for readability
         theta = state[0][0]
         thetadot = state[1][0]
+        
+        theta_new = theta + thetadot * self.Ts
+        
         thetaddot = (2 * P.kt) * (V_app - P.kt*thetadot) / (self.R * self.m * (self.radius**2))
-        xdot = np.array([[thetadot], [thetaddot]])
+        
+        xdot = np.array([[theta_new], [thetadot], [thetaddot]])
         return xdot
 
     def h(self):

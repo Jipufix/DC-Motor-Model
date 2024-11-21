@@ -5,11 +5,12 @@ from signalGenerator import signalGenerator
 from DCAnimation import DCAnimation
 from dataPlotter import dataPlotter
 from DCDynamics import DCDynamics
+from ctrlPD import ctrlPD
 
 # Instantiate the reference input classes
 DC = DCDynamics()
-reference = signalGenerator(amplitude=0.5, frequency=0.1)
-voltage = 12
+controller = ctrlPD()
+reference = signalGenerator(amplitude=500, frequency=0.05)
 
 
 # Instantiate teh simulation plots and animation 
@@ -23,15 +24,17 @@ while t < P.t_end:  # main simulation loop
     
     while t < t_next_plot:
         # set variables
-        r = reference.square(t)
-        u = 12
+        r = reference.square(t)      # convert to rad/s
+        x = DC.state
         
+        u = controller.update(r, x)
+        print(x)
         y = DC.update(u)
         t = t + P.Ts
 
     # update animation
     animation.update(DC.state)
-    dataPlot.update(t, r, DC.state, u)
+    dataPlot.update(t, r, x, u)
     # advance time by t_plot
     t = t + P.t_plot
     plt.pause(0.05)  # allow time for animation to draw

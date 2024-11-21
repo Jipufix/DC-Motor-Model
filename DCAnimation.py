@@ -41,9 +41,6 @@ class DCAnimation:
             self.ax.add_patch(base)
     
     def drawWheel(self, theta):
-        # define the radius of the wheel
-        pointRadius = 0.01
-        
         # Circle is unmoving, only defined point moves
         if (self.flagInit):
             # create a wheel

@@ -29,7 +29,7 @@ class dataPlotter:
         # update the time history of all plot variables
         self.time_history.append(t)  # time
         self.z_ref_history.append(reference)  # reference angular position
-        self.z_history.append(states[1,0])  # angular position
+        self.z_history.append(states[1,0])  # angular velocity
         self.force_history.append(ctrl)  # force on the base
         # update the plots with associated histories
         self.handle[0].update(self.time_history, [self.z_history, self.z_ref_history])

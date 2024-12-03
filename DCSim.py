@@ -12,10 +12,10 @@ DC = DCDynamics()
 controller = ctrlPD()
 
 # TASK 2 #
-# reference = signalGenerator(amplitude=500, frequency=0.01)
+reference = signalGenerator(amplitude=500, frequency=0.01)
 
 # TASK 3.a #
-reference = signalGenerator(amplitude=100, frequency=0.01, y_offset=50)
+# reference = signalGenerator(amplitude=100, frequency=0.01, y_offset=50)
 
 # TASK 3.b #
 #reference = signalGenerator(amplitude=100, frequency=0.01)

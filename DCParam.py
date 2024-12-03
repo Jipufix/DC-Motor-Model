@@ -2,18 +2,18 @@
 import numpy as np 
 
 # Physical parameters of the arm known to the controller
-radius = (7.3 / 100) / (2.0)    # radius of the wheel, cm -> m4
-m = 13                          # mass of the wheel, g
-d = (2.5 / 100)                 # thickness of the wheel, mm -> m
+radius = (7.3 / 100) / (2.0)    # radius of the wheel, cm -> m
+m = 13 / 1000                         # mass of the wheel, kg
+d = (2.5 / 1000)                 # thickness of the wheel, mm -> m
 
 # Parameters for the motor
-VMax = 12                    # rated voltage of the motor can go up to 12V DC, but max operation should be 3 V
+VMax = 3                    # rated voltage of the motor can go up to 12V DC, but max operation should be 3 V
 thetadotMax = 6600          # maximum no load angular velocity, rpm
-mMotor = 26                 # mass of motor, g
+mMotor = 26 / 1000              # mass of motor, kg
 
 # Parameters for animation
-length = (2.0 / 10)         # length of the base, cm -> m
-width = (1.0 / 10)          # width of the base, cm -> m
+length = (2.0 / 100)         # length of the base, cm -> m
+width = (1.0 / 100)          # width of the base, cm -> m
 
 figWidth = 1.0              # width of plot, m
 figHeight = 1.0             # width of plot, m
@@ -24,7 +24,7 @@ thetadot0 = 0.0             # initial wheel angular velocity, rad/s
 thetaddot0 = 0.0            # initial wheel angular acceleration, rad/s^2
 
 # Calculations
-R = VMax / 0.8                                            # Ohms
+R = VMax / 0.11                                            # Ohms
 kt = VMax / ((thetadotMax * 2 * np.pi) / 60)        # torque constant
 
 # Simulation parameters

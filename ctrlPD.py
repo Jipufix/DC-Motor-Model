@@ -3,7 +3,7 @@ import DCParam as P
 
 class ctrlPD:
     def __init__(self):
-        ts = 0.1              # settling time, s
+        ts = 14              # settling time, s
         
         self.kd = (1.0 - P.R * P.m * (P.radius**2)) / (2.0 * P.kt)
         self.kp = (2.0 / (ts * P.kt)) - 1.0

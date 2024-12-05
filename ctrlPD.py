@@ -3,7 +3,7 @@ import DCParam as P
 
 class ctrlPD:
     def __init__(self):
-        ts = 0.1              # settling time, s
+        ts = 0.01              # settling time, s
         
         self.kd = (1.0 - P.R * P.m * (P.radius**2)) / (2.0 * P.kt)
         self.kp = (2.0 / (ts * P.kt)) - 1.0
@@ -12,7 +12,6 @@ class ctrlPD:
         thetadot = state[1][0]
         thetaddot = state[2][0]
         V_tilde = (self.kp * (thetadot_r - thetadot)) - (self.kd * thetaddot)
-        print (V_tilde)
         V_tilde = saturate(V_tilde, P.VMax)
         return V_tilde
     

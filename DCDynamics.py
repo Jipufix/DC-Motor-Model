@@ -3,7 +3,7 @@ import DCParam as P
 
 
 class DCDynamics:
-    def __init__(self, alpha=0.0):
+    def __init__(self):
         # Initial state conditions
         self.state = np.array([
             [P.theta0],         # initial angle
@@ -11,15 +11,9 @@ class DCDynamics:
             [P.thetaddot0]      # initial angular acceleration
         ])  
         self.m = P.m # mass of wheel
-
         self.radius = P.radius # radius of wheel
-
-        self.d = P.d # thickness of wheel
-        
         self.kt = P.kt
-        
         self.R = P.R
-        
         self.Ts = P.Ts  
 
     def update(self, u):
@@ -37,7 +31,7 @@ class DCDynamics:
         theta = state[0][0]
         thetadot = state[1][0]
         
-        thetaddot = (2 * P.kt) * (V_app - P.kt*thetadot) / (self.R * self.m * (self.radius**2))
+        thetaddot = (2 * P.kt) * (V_app - P.kt * thetadot) / (self.R * self.m * (self.radius**2))
         
         xdot = np.array([[thetadot], [thetaddot], [0.0]])       # Third value is angular jerk, which should be 0.0 as we are not touching it
         return xdot

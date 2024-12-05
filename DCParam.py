@@ -11,8 +11,8 @@ thetadotMax = 5280                  # maximum no load angular velocity, rpm
 mMotor = 26 / 1000                  # mass of motor, g -> kg
 
 # Parameters for animation
-length = (2.0 / 10)         # length of the base, cm -> m
-width = (1.0 / 10)          # width of the base, cm -> m
+length = (2.0 / 100)         # length of the base, cm -> m
+width = (1.0 / 100)          # width of the base, cm -> m
 
 figWidth = 1.0              # width of plot, m
 figHeight = 1.0             # width of plot, m

@@ -3,10 +3,17 @@ import DCParam as P
 
 class ctrlPD:
     def __init__(self):
-        ts = 0.01              # settling time, s
+        ts = 0.01             # settling time, s
+        zeta = 0.7          # damping ratio
+        omega_n = 4.0 / ts    # natural frequency
         
-        self.kd = (1.0 - P.R * P.m * (P.radius**2)) / (2.0 * P.kt)
-        self.kp = (2.0 / (ts * P.kt)) - 1.0
+        mod_d = 30
+        mod_p = 1
+        
+        self.kd = 10
+        self.kp = 5.0
+        
+        print (self.kd, self.kp)
 
     def update(self, thetadot_r, state):
         thetadot = state[1][0]

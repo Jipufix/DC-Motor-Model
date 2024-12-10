@@ -6,7 +6,7 @@ radius = (7.3 / 100) / (2.0)        # radius of the wheel, cm -> m
 m = 13.0 / 1000.0                       # mass of the wheel, g -> kg
 
 # Parameters for the motor
-VMax = 3.0                           # rated voltage of the motor can go up to 12V DC, but max operation should be 3 V
+VMax = 9.0                           # rated voltage of the motor can go up to 12V DC, but max operation should be 3 V
 thetadotMax = 5280                  # maximum no load angular velocity, rpm
 mMotor = 26 / 1000                  # mass of motor, g -> kg
 
